@@ -209,11 +209,18 @@
 
     <script>
         const video = document.getElementById('heroVideo');
-        
+
         video.addEventListener('ended', () => {
-            video.currentTime = video.duration;
-            video.pause();
+            // ตรวจสอบให้แน่ใจว่าไม่เล่นซ้ำหากการตั้งค่า playbackRate ต่ำเกินไป
+            if (video.playbackRate > 0.1) {
+                video.currentTime = 0;
+                video.play();
+            }
         });
+
+// Optional: Add a slower playback rate if you want the video to play more slowly
+// Uncomment the line below to slow down the video
+// video.playbackRate = 0.75;  // Adjust the value between 0 and 1 to control speed
     </script>
 </body>
 </html>
