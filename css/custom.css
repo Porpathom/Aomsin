@@ -1,55 +1,127 @@
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #2ecc71;
+    --text-color: #333;
+    --light-bg: #f4f6f9;
 }
 
-h1, h5 {
-    color: #007BFF;
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
 }
 
 .card {
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .card-img-top {
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
+.card:hover .card-img-top {
+    transform: scale(1.05);
 }
-body {
-    font-family: 'Arial', sans-serif;
+.btn {
+    position: relative;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-h1, h5 {
-    color: #007BFF;
-}
-
-.card {
+.btn-primary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
     border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #2980b9, #3498db);
 }
 
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
+.btn-secondary {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    color: white;
+    border: none;
 }
 
-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+.btn-secondary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+}
+.test-question {
+    background-color: #f8f9fa;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.test-question:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.test-question h5 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* สไตล์สำหรับตัวเลือกคำตอบ */
+.test-question input[type="radio"] {
+    margin-right: 10px;
+}
+
+.test-question label {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.test-question input[type="radio"]:checked + label {
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* สไตล์ปุ่มส่งคำตอบ */
+.btn-submit {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
 }
