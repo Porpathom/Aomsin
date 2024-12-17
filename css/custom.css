@@ -1,3 +1,6 @@
+/* ========================
+   Global Variables
+======================== */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
@@ -6,32 +9,20 @@
     --light-bg: #f4f6f9;
 }
 
+/* ========================
+   General Styles
+======================== */
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--light-bg);
     color: var(--text-color);
+    line-height: 1.6;
 }
 
-.card {
+* {
     transition: all 0.3s ease;
-    border-radius: 15px;
-    overflow: hidden;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.card-img-top {
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.card:hover .card-img-top {
-    transform: scale(1.05);
-}
 .btn {
     position: relative;
     padding: 10px 25px;
@@ -47,12 +38,12 @@ body {
 .btn-primary {
     background: linear-gradient(135deg, #3498db, #2980b9);
     border: none;
+    color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    background: linear-gradient(135deg, #2980b9, #3498db);
 }
 
 .btn-secondary {
@@ -64,16 +55,72 @@ body {
 .btn-secondary:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    background: linear-gradient(135deg, #7f8c8d, #95a5a6);
 }
 
-.btn i {
-    margin-right: 8px;
-}
-
-footer {
+/* ========================
+   Navbar
+======================== */
+.navbar {
     background: linear-gradient(135deg, var(--primary-color), #34495e);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* ========================
+   Hero Section
+======================== */
+.hero-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.hero-video {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================
+   Card Section (Learning Page)
+======================== */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* ========================
+   Test Section Styles
+======================== */
 .test-question {
     background-color: #f8f9fa;
     border-left: 5px solid #3498db;
@@ -89,11 +136,10 @@ footer {
 }
 
 .test-question h5 {
-    color: #2c3e50;
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
-/* สไตล์สำหรับตัวเลือกคำตอบ */
 .test-question input[type="radio"] {
     margin-right: 10px;
 }
@@ -104,13 +150,13 @@ footer {
 }
 
 .test-question input[type="radio"]:checked + label {
-    color: #3498db;
+    color: var(--secondary-color);
     font-weight: bold;
 }
 
-/* สไตล์ปุ่มส่งคำตอบ */
+/* Submit Button */
 .btn-submit {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, var(--accent-color), #27ae60);
     border: none;
     color: white;
     padding: 12px 30px;
@@ -123,5 +169,131 @@ footer {
 .btn-submit:hover {
     transform: translateY(-3px);
     box-shadow: 0 7px 20px rgba(0,0,0,0.3);
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    background: linear-gradient(135deg, #27ae60, var(--accent-color));
+}
+
+/* ========================
+   Footer
+======================== */
+footer {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* ========================
+   Footer (Sticky Adjustment)
+======================== */
+html, body {
+    height: 100%; /* ครอบคลุมความสูงของหน้าจอ */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* จัดการเลย์เอาต์ให้มีลำดับ */
+}
+
+.content {
+    flex: 1; /* ใช้ Flexbox ดัน footer ลงล่าง */
+}
+
+footer {
+    margin-top: auto; /* ทำให้ footer อยู่ล่างสุด */
+}
+
+/* ========================
+   เพิ่มปุ่ม Ghost Style
+======================== */
+.btn-ghost {
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================
+   เพิ่ม Animation สำหรับ Hero Section
+======================== */
+.hero-content {
+    animation: fadeIn 1.2s ease-in-out; /* เพิ่มแอนิเมชันให้กล่อง Hero */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================
+   Responsive Enhancements
+======================== */
+@media (max-width: 768px) {
+    footer {
+        padding: 1rem 0; /* ลดขนาด padding ของ footer */
+    }
+
+    .btn {
+        padding: 8px 20px; /* ลดขนาดปุ่ม */
+    }
+
+    .test-question {
+        padding: 15px; /* ลด padding สำหรับคำถาม */
+    }
+
+    .hero-content {
+        padding: 1rem; /* ลด padding ของ hero content */
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 14px; /* ลดขนาดฟอนต์ของปุ่ม */
+    }
+
+    .card-img-top {
+        height: 150px; /* ลดขนาดความสูงของภาพในการ์ด */
+    }
+
+    .hero-video {
+        aspect-ratio: auto; /* ปรับให้แสดงตามพื้นที่ */
+    }
+}
+
+/* ========================
+   Responsive Styles
+======================== */
+@media (max-width: 768px) {
+    .hero-video,
+    .hero-content {
+        max-width: 100%;
+        margin: 0 15px;
+    }
+
+    .card-img-top {
+        height: 200px;
+    }
+}
+
+.navbar-brand img {
+    height: 55px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: 15px; /* ขอบมน */
 }
