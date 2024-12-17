@@ -25,7 +25,7 @@ body {
 
 .btn {
     position: relative;
-    padding: 10px 25px;
+    padding: 12px 30px; /* เพิ่ม padding เพื่อความสม่ำเสมอ */
     border-radius: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -33,6 +33,9 @@ body {
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: auto; /* ป้องกันการบังคับความกว้าง */
+    max-width: 100%; /* ไม่ให้เกินหน้าจอบนมือถือ */
+    text-align: center;
 }
 
 .btn-primary {
@@ -57,12 +60,61 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+/* ปรับแต่งปุ่ม Submit */
+.btn-submit {
+    background: linear-gradient(135deg, var(--accent-color), #27ae60);
+    border: none;
+    color: white;
+    padding: 12px 30px; /* ให้ padding เท่ากับปุ่มอื่น */
+    font-size: 16px; /* เพิ่มความสม่ำเสมอของฟอนต์ */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: auto;
+    max-width: 100%;
+    text-align: right; /* ปุ่ม Submit อยู่ฝั่งขวา */
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #27ae60, var(--accent-color));
+}
+
+/* เพิ่มปุ่ม Ghost Style */
+.btn-ghost {
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 12px 30px; /* ปรับให้เข้ากับปุ่มอื่น */
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: auto;
+    max-width: 100%;
+}
+
+.btn-ghost:hover {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* ========================
    Navbar
 ======================== */
 .navbar {
     background: linear-gradient(135deg, var(--primary-color), #34495e);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    height: 55px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: 15px; /* ขอบมน */
 }
 
 /* ========================
@@ -86,6 +138,18 @@ body {
     border-radius: 15px;
     padding: 1.5rem;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 1.2s ease-in-out; /* เพิ่มแอนิเมชัน */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ========================
@@ -137,7 +201,7 @@ body {
 
 .test-question h5 {
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 15px;    
 }
 
 .test-question input[type="radio"] {
@@ -154,24 +218,6 @@ body {
     font-weight: bold;
 }
 
-/* Submit Button */
-.btn-submit {
-    background: linear-gradient(135deg, var(--accent-color), #27ae60);
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    font-size: 18px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.btn-submit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(0,0,0,0.3);
-    background: linear-gradient(135deg, #27ae60, var(--accent-color));
-}
-
 /* ========================
    Footer
 ======================== */
@@ -180,69 +226,14 @@ footer {
     color: white;
     text-align: center;
     padding: 2rem 0;
-}
-
-/* ========================
-   Footer (Sticky Adjustment)
-======================== */
-html, body {
-    height: 100%; /* ครอบคลุมความสูงของหน้าจอ */
-    margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column; /* จัดการเลย์เอาต์ให้มีลำดับ */
-}
-
-.content {
-    flex: 1; /* ใช้ Flexbox ดัน footer ลงล่าง */
-    min-height: 100vh; /* ให้พื้นที่เนื้อหาอย่างน้อยเต็มหน้าจอ */
-}
-
-footer {
     margin-top: auto; /* ทำให้ footer อยู่ล่างสุด */
 }
 
-/* ========================
-   เพิ่มปุ่ม Ghost Style
-======================== */
-.btn-ghost {
-    background: transparent;
-    border: 2px solid var(--secondary-color);
-    color: var(--secondary-color);
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+.buttons-container {
+    display: flex;
+    flex-direction: row; /* เรียงปุ่มในแนวนอน (เดสก์ท็อป) */
+    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
 }
-
-.btn-ghost:hover {
-    background: var(--secondary-color);
-    color: white;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* ========================
-   เพิ่ม Animation สำหรับ Hero Section
-======================== */
-.hero-content {
-    animation: fadeIn 1.2s ease-in-out; /* เพิ่มแอนิเมชันให้กล่อง Hero */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* ========================
    Responsive Enhancements
 ======================== */
@@ -262,6 +253,15 @@ footer {
     .hero-content {
         padding: 1rem; /* ลด padding ของ hero content */
     }
+
+    .d-flex {
+        flex-direction: column; /* จัดปุ่มเรียงแนวตั้ง */
+        gap: 10px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    }
+
+    .btn {
+        width: 100%; /* ให้ปุ่มเต็มความกว้าง */
+    }
 }
 
 @media (max-width: 480px) {
@@ -278,24 +278,20 @@ footer {
     }
 }
 
-/* ========================
-   Responsive Styles
-======================== */
 @media (max-width: 768px) {
-    .hero-video,
-    .hero-content {
-        max-width: 100%;
-        margin: 0 15px;
+    .buttons-container {
+        flex-direction: column; /* เรียงปุ่มในแนวตั้ง */
     }
 
-    .card-img-top {
-        height: 200px;
+    .buttons-container .btn {
+        width: 100%; /* ปรับให้ปุ่มกว้างเต็มจอ */
     }
-}
 
-.navbar-brand img {
-    height: 55px;
-    width: auto;
-    margin-right: 10px;
-    border-radius: 15px; /* ขอบมน */
+    .buttons-container .order-1 {
+        order: 1; /* Submit อยู่บน */
+    }
+
+    .buttons-container .order-2 {
+        order: 2; /* Back อยู่ล่าง */
+    }
 }
