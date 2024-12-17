@@ -187,6 +187,7 @@ footer {
 ======================== */
 html, body {
     height: 100%; /* ครอบคลุมความสูงของหน้าจอ */
+    margin: 0;
 }
 
 body {
@@ -196,6 +197,7 @@ body {
 
 .content {
     flex: 1; /* ใช้ Flexbox ดัน footer ลงล่าง */
+    min-height: 100vh; /* ให้พื้นที่เนื้อหาอย่างน้อยเต็มหน้าจอ */
 }
 
 footer {
